@@ -144,7 +144,7 @@ class CRFTorchScript(nn.Module):
             x = x.flatten(0, -2).unsqueeze(1)
 
             # 1d gaussian filtering
-            kernel = CRF.create_gaussian_kernel1d(inv_theta[i], spatial_spacing[i], filter_size[i]).view(1, 1, -1).to(x)
+            kernel = CRFTorchScript.create_gaussian_kernel1d(inv_theta[i], spatial_spacing[i], filter_size[i]).view(1, 1, -1).to(x)
             x = F.conv1d(x, kernel, padding=(filter_size[i] // 2,))
 
             # reshape back to (n, *spatial)
