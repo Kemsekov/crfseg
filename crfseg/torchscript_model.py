@@ -56,9 +56,6 @@ class CRFTorchScript(nn.Module):
         spatial_spacings : array of floats or None
             Array of shape ``(batch_size, len(spatial))`` with spatial spacings of tensors in batch ``x``.
             None is equivalent to all ones. Used to adapt spatial gaussian filters to different inputs' resolutions.
-        display_tqdm : bool
-            Whether to display the iterations using tqdm-bar.
-
         Returns
         -------
         output : torch.tensor
